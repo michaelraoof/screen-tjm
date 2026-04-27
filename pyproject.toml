@@ -1,0 +1,21 @@
+[project]
+name = "screenseeker-automation"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "mss>=9.0.1",           # Fast screenshot capture
+    "pillow>=10.3.0",       # Image handling
+    "pyautogui>=0.9.54",    # Mouse clicks + keyboard
+    "pygetwindow>=0.0.9",   # Detect when Notepad window opens
+    "requests>=2.32.0",     # Fetch posts from the API
+    "python-dotenv>=1.0.1", # Load OPENROUTER_API_KEY from .env file
+    "pyperclip>=1.8.2",     # Clipboard paste (handles unicode text safely)
+    "openrouter>=0.9.1",    # Vision model via OpenRouter
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
