@@ -6,7 +6,7 @@ Fetches blog posts from a REST API, then uses a multimodal vision model to locat
 
 ### 1. Fetch posts
 
-`main.py` calls the [JSONPlaceholder](https://jsonplaceholder.typicode.com/posts) API for 3 sample posts. If the network is unavailable it falls back to a hardcoded list of 100 posts.
+`main.py` calls the [JSONPlaceholder](https://jsonplaceholder.typicode.com/posts) API for 3 sample posts. If the network is unavailable the script exits with no posts to process.
 
 ### 2. Vision grounding (ScreenSpot-Pro approach)
 
@@ -95,7 +95,7 @@ screen-tjm/
 |---|---|
 | Icon not found | 3 retries with 1 s delay, then falls back to `subprocess.Popen("notepad.exe")` |
 | Notepad doesn't open within 10 s | Skips the post, continues with the next one |
-| API unavailable | Falls back to 100 hardcoded sample posts |
+| API unavailable | Prints an error and exits with no posts to process |
 | File already exists | Automatically confirms the overwrite dialog |
 | Save dialog on close | Vision detects and clicks "Don't Save" (file is already saved) |
 | Per-post isolation | A failure on post N does not affect post N+1 |
